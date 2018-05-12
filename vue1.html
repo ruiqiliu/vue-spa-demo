@@ -1,0 +1,19 @@
+<head>
+  <title> Vue Demo </title>
+  <body>
+    <div id="example-3">
+      <button v-on:click="say('CWJ')">Say hi</button>
+      <button v-on:click="say('LRQ')">Say what</button> <br>
+
+      <ul>
+        <li v-for="item in items">
+          {{ item.message }}
+        </li>
+      </ul>
+      <label>{{name}}</label>
+    </div>    
+    <script src="lib/vue.js"></script>
+    <script src="start.js"></script>
+  </body>
+</head>
+
