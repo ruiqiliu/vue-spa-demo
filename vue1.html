@@ -2,16 +2,41 @@
   <title> Vue Demo </title>
   <body>
     <div id="example-3">
-      <button v-on:click="say('CWJ')">Say hi</button>
+      <button v-on:click="reverseName()"> click to reverse name: {{name}}</button>
       <button v-on:click="say('LRQ')">Say what</button> <br>
-
+      <span v-if="seen"> You can see me here which is control by flag 'seen'</span>
       <ul>
         <li v-for="item in items">
           {{ item.message }}
         </li>
       </ul>
       <label>{{name}}</label>
-    </div>    
+      <p>Input message : {{model_msg}} </p>
+      <input v-model = "model_msg">
+
+      <p> Component demo: </p>
+      <ol>
+        <todo-item></todo-item>
+        <todo-item></todo-item>
+        <todo-item></todo-item>
+      </ol>
+    </div> 
+    <div id="app2"> 
+      <h3>this is app2 demo</h3>
+      <ol>
+          <!--
+      现在我们为每个 todo-item 提供 todo 对象
+      todo 对象是变量，即其内容可以是动态的。
+      我们也需要为每个组件提供一个“key”，稍后再
+      作详细解释。
+    -->
+        <todo-item2
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item2>
+      </ol>
+    </div>   
     <script src="lib/vue.js"></script>
     <script src="start.js"></script>
   </body>

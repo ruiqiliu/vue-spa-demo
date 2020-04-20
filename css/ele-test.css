@@ -23,6 +23,10 @@
     margin-bottom: 40px;
   }
   
+  input {
+    height: 300px;
+    width: 1000px;
+  }
   .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
     line-height: 260px;
