@@ -5,12 +5,30 @@
       <button v-on:click="reverseName()"> click to reverse name: {{name}}</button>
       <button v-on:click="say('LRQ')">Say what</button> <br>
       <span v-if="seen"> You can see me here which is control by flag 'seen'</span>
+      <h1 v-if="awesome">Vue is awesome!</h1> 
+      <h1 v-else>Oh no 😢</h1>
+      <div id='example-4'>
+          <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+          <label for="jack">Jack</label>
+          <input type="checkbox" id="john" value="John" v-model="checkedNames">
+          <label for="john">John</label>
+          <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+          <label for="mike">Mike</label>
+          <br>
+          <span>Checked names: {{ checkedNames }}</span>
+        </div>
+      <button v-on:click="counter += 1">Add 1</button>
+  <p>The button above has been clicked {{ counter }} times. in vue_demo/vue1.html</p>
       <ul>
         <li v-for="item in items">
           {{ item.message }}
         </li>
       </ul>
       <label>{{name}}</label>
+      <span>Multiline message is:</span>
+<p style="white-space: pre-line;">{{ message }}</p>
+<br>
+<textarea v-model="message" placeholder="add multiple lines"></textarea>
       <p>Input message : {{model_msg}} </p>
       <input v-model = "model_msg">
 
@@ -20,9 +38,29 @@
         <todo-item></todo-item>
         <todo-item></todo-item>
       </ol>
+      <template v-if="loginType === 'username'">
+          <label>Username</label>
+          <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+          <label>Email</label>
+          <input placeholder="Enter your email address" key="email-input">
+        </template>
     </div> 
     <div id="app2"> 
       <h3>this is app2 demo</h3>
+      <p>Using mustaches（双大括号语法）: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <div>
+        {{ number + 1 }}
+        <br>
+        {{ ok ? 'YES' : 'NO' }}
+        <br>
+        {{ message.split(' ').reverse().join(' ') }}
+        <div v-bind:id="'list-' + id">
+          <p>bind to id</p>
+        </div>
+      </div>
       <ol>
           <!--
       现在我们为每个 todo-item 提供 todo 对象
@@ -36,6 +74,15 @@
           v-bind:key="item.id"
         ></todo-item2>
       </ol>
+      <alert-box>Something is used for slot</alart-box>
+      <div :style="{ fontSize: postFontSize + 'em' ,color:'red'}">
+        <blog-post 
+          v-for =  "post in groceryList"
+          v-bind:key=post.id
+          v-bind:post=post
+          v-on:enlarge-text="onEnlargeText">
+        </blog-post>
+       </div>
     </div>   
     <script src="lib/vue.js"></script>
     <script src="start.js"></script>
