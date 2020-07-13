@@ -13,3 +13,4 @@ tmp
 .babelrc
 .editorconfig
 .postcssrc.js
+package-lock.json
