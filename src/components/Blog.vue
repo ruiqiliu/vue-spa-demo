@@ -1,6 +1,6 @@
 <template>
   <div >
-    <my-logo title="博客详情页">
+    <my-logo title="博客详情页" class="portrait">
     </my-logo>
     <div>
       <p> 标题： {{ blog.title }}  </p>
@@ -22,13 +22,14 @@ export default {
     }
   },
   mounted() {
+    // 获取id参数， 如生成：/myurl?id=333
     this.$http.get('/api/interface/blogs/show?id='+this.$route.query.id).then((response) => {
        console.info(response.body)
        this.blog = response.body.result
     }, (response) => {
        console.error(response)
     });
-    alert(this.hi("jim"))
+   // alert(this.hi("jim"))
   },
   components: {
     MyLogo
@@ -40,4 +41,7 @@ export default {
 </script>
 
 <style>
+ .portrait {
+   size: 2cm
+}
 </style>

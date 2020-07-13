@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js' //定义了工程的入口
   },
   output: {
     path: config.build.assetsRoot,

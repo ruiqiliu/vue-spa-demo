@@ -4,8 +4,9 @@
     </my-logo>
     <input type='button' @click='change_title' value='点击修改标题'/><br/>
     <table>
-      <tr v-for="blog in blogs">
+      <tr v-for="blog in blogs" v-bind:key="blog.id">
         <td>
+          <!-- 指定组件路由和参数 -->
           <router-link :to="{name: 'Blog', query: {id: blog.id}}">
             {{blog.id}}
           </router-link>

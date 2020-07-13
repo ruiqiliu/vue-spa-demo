@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// @ 代表源代码目录 一般表示src
 import Index from '@/components/Index'
 import Hello from '@/components/Hello'
 

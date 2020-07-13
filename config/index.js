@@ -29,12 +29,12 @@ module.exports = {
     assetsPublicPath: '/',
     //proxyTable: {},
 
-    proxyTable: {
+    proxyTable: {//创建反向代理规则，解决跨域问题，只使用与dev模式，生产环境由nignx解决
       '/api': {
         target: 'http://siwei.me',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/api': '' //路由重写： api开头的url转发到target，并去掉api
         }
       }
     },
